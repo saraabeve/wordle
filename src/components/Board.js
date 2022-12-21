@@ -5,15 +5,20 @@ import React, {
   createRef,
   useContext,
 } from "react";
-import RICIBs from "react-individual-character-input-boxes";
 import { Letter } from "./Letter";
+import { AuthContext } from "../context/auth";
 
 export function Board(props) {
+  const { guesses, setGuesses } = useContext(AuthContext);
+
+  function handleInput(value) {
+    setGuesses((guesses[props.row][props.pos] = value));
+  }
   const index = [0, 1, 2, 3, 4];
   const row = (i) => (
     <div className="row">
       {index.map((j) => (
-        <Letter row={i} pos={j} inputRegExp={/^[0-9]$/} />
+        <Letter row={i} pos={j} Input={handleInput} />
       ))}
     </div>
   );

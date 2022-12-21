@@ -1,52 +1,50 @@
 * {
   margin: 0px;
   padding: 0px;
+  font-family: "Permanent Marker", cursive;
 }
 .container {
   display: grid;
   place-items: center;
-  padding: 95px;
+  padding: 50px;
 }
 .keyboard {
-  padding: 50px;
-  margin: 0px;
+  padding: 60px;
+  margin: px;
 }
 input[type="text"] {
-  border-radius: 10px;
-  margin: 4px;
-  padding: 12px;
-  width: 15px;
-  height: 15px;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 10px;
+  width: 25px;
+  height: 20px;
   background-color: rgb(255, 255, 255);
+  font-size: x-large;
+  font-weight: 700;
 }
 button {
-  border-radius: 5px;
+  border-radius: 7px;
   width: 40px;
   height: 40px;
-  background-color: rgb(220, 252, 250);
-  margin: 4px;
-  padding: 12px;
+  background-color: #f2f3f4;
+  margin: 3px;
+  padding: 8px;
 }
 button:hover {
   background-color: grey;
 }
 #del {
-  background-color: rgb(174, 222, 222);
-  width: 180px;
+  background-color: #b3b6b7;
+  width: 175px;
 }
 header {
   display: flex;
   position: sticky;
   justify-content: center;
   justify-content: space-evenly;
-  
-
   width: 100vw;
 }
 h1 {
-  font-size: x-large;
+  font-size: xxx-large;
   align-self: center;
-  font-style: italic;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  
 }

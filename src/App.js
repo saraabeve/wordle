@@ -5,27 +5,19 @@ import { Board } from "./components/Board";
 import { Keyboard } from "./components/Keyboard";
 import ReactDOM from "react-dom";
 import { Header } from "./components/Header";
+import { AuthContext } from "./context/auth";
 
 function App() {
-  const [guesses, setGuesses] = useState([[], [], [], []]);
+  const [guesses, setGuesses] = useState([[], [], [], [], []]);
 
-  function addGuess(ch) {
-    if (guesses.length < 5) {
-      guesses[0].push(ch);
-      setGuesses(guesses);
-      console.log(guesses);
-    } else if (guesses.length === 5) {
-      alert("DONE");
-    }
-  }
   return (
-    <>
+    <AuthContext.Provider value={{ guesses, setGuesses }}>
       <Header />
       <div className="container">
         <Board />
         <Keyboard />
       </div>
-    </>
+    </AuthContext.Provider>
   );
 }
 
