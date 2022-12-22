@@ -31,7 +31,7 @@ export function Keyboard(props) {
         <button value={"x"}>X</button>
         <button value={"c"}>C</button>
         <button value={"v"}>V</button>
-        <button id="del" value={"clear"}>
+        <button value={"clear"} id="del">
           delete
         </button>
         <button value={"b"}>B</button>

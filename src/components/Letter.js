@@ -1,14 +1,19 @@
-import React, { createRef, re } from "react";
-import { useRef, useContext } from "react";
+import React, { createRef, useRef } from "react";
+import { useContext } from "react";
+import { prototype } from "events";
 
 export function Letter(props) {
   function validateInput(event) {
     const regex = /^[A-Za-z]*$/;
     if (regex.test(event.target.value)) {
-      return props.Input(event.value);
+      console.log(event.target.value);
+      return (event) => {
+        props.Input(event.target.value);
+      };
+    } else {
+      event.target.readOnly = true;
+      event.target.value = "";
     }
-    console.log("ccc");
   }
-
   return <input type="text" maxLength="1" onKeyDown={validateInput} />;
 }
