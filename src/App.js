@@ -1,23 +1,38 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, createContext, useEffect } from "react";
 import { readConfigFile } from "typescript";
 import "./App.scss";
 import { Board } from "./components/Board";
 import { Keyboard } from "./components/Keyboard";
-import ReactDOM from "react-dom";
 import { Header } from "./components/Header";
-import { AuthContext } from "./context/auth";
+import { DefaultBoard } from "./Structures";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+export const AppContext = createContext();
 
 function App() {
-  const [guesses, setGuesses] = useState([[], [], [], [], []]);
+  const [board, setBoard] = useState(DefaultBoard);
+  const [currentGuess, setCurrentGuess] = useState({ row: 0, pos: 0 });
+  const [user, setUser] = useState("Guess");
 
   return (
-    <AuthContext.Provider value={{ guesses, setGuesses }}>
-      <Header />
-      <div className="container">
-        <Board />
-        <Keyboard />
-      </div>
-    </AuthContext.Provider>
+    <div>
+      <AppContext.Provider
+        value={{
+          board,
+          setBoard,
+          currentGuess,
+          setCurrentGuess,
+          user,
+          setUser,
+        }}
+      >
+        <Header />
+        <div className="container">
+          <Board />
+          <Keyboard />
+        </div>
+      </AppContext.Provider>
+    </div>
   );
 }
 
