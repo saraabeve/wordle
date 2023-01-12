@@ -12,7 +12,7 @@ export const AppContext = createContext();
 function App() {
   const [board, setBoard] = useState(DefaultBoard);
   const [currentGuess, setCurrentGuess] = useState({ row: 0, pos: 0 });
-  const [user, setUser] = useState("Guess");
+  const [user, setUser] = useState("Guest");
 
   return (
     <div>

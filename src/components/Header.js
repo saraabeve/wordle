@@ -1,6 +1,7 @@
 import React from "react";
 import { AppContext } from "../App";
 import { useContext } from "react";
+import "react-modal-login/dist/react-modal-login.css";
 
 export function Header() {
   const { user } = useContext(AppContext);
