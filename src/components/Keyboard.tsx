@@ -28,11 +28,14 @@ export function Keyboard(props) {
         <button value={"z"}>Z</button>
       </div>
       <div className="keyboardRow">
+        <button value={"clear"} id="operator">
+          ◀
+        </button>
         <button value={"x"}>X</button>
         <button value={"c"}>C</button>
         <button value={"v"}>V</button>
-        <button value={"clear"} id="del">
-          delete
+        <button value={"enter"} id={"enter"}>
+          Enter
         </button>
         <button value={"b"}>B</button>
         <button value={"n"}>N</button>

@@ -5,17 +5,18 @@ import { Board } from "./components/Board";
 import { Keyboard } from "./components/Keyboard";
 import { Header } from "./components/Header";
 import { DefaultBoard } from "./Structures";
-import "bootstrap/dist/css/bootstrap.min.css";
 
-export const AppContext = createContext();
+export const AppContext = createContext(null);
 
 function App() {
   const [board, setBoard] = useState(DefaultBoard);
   const [currentGuess, setCurrentGuess] = useState({ row: 0, pos: 0 });
   const [user, setUser] = useState("Guest");
+  const [showLogin, setShowLogin] = useState(true);
+  const [showIntro, setShowIntro] = useState(false);
 
   return (
-    <div>
+    <>
       <AppContext.Provider
         value={{
           board,
@@ -24,6 +25,10 @@ function App() {
           setCurrentGuess,
           user,
           setUser,
+          showLogin,
+          setShowLogin,
+          showIntro,
+          setShowIntro,
         }}
       >
         <Header />
@@ -32,7 +37,7 @@ function App() {
           <Keyboard />
         </div>
       </AppContext.Provider>
-    </div>
+    </>
   );
 }
 
