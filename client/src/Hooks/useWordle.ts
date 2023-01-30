@@ -16,7 +16,7 @@ export function useWordle() {
     defaultGuesses ?? Array(5).fill(undefined));
   const [Word, setWord] = useState(" ");
   const [showInfo, setShowInfo] = useState(false)
-  const [showLogin, setShowlogin]= useState(true)
+  const [showLogin, setShowlogin]= useState(false)
   const [gameMode, setgameMode] = useState("ON");
   const [turn, setTurn] = useState(0)
   const [GuessColors, setGuessColors] = useState({})
@@ -40,13 +40,12 @@ export function useWordle() {
   async function submitGuess() {
     const solution = await getGuessSolution(Word, currentGuess);
     if (solution['state'] === 'win') {
-       setgameMode("WIN")
-      setShowWin(true);
+      setgameMode("WIN")
     }
     setGuessColors(solution)
     const submittedGuess: Guess[] = [...currentGuess].map((letter) => {
       return {
-        key: letter.toLowerCase(),
+        key: letter.toUpperCase(),
         color: solution[letter]
       };
     });
@@ -68,11 +67,11 @@ export function useWordle() {
     // getWordByID(Word).then((res) => setWord(res))
      
   }
-
-
   function endTurn() {
-    if (turn === 5)
+    if (turn === 5){
       setgameMode("LOST")
+      resetBoard()
+    }
     if (gameMode != "ON") {
       endGame()
     }
@@ -100,6 +99,7 @@ export function useWordle() {
     }
   };
 
+ 
    return {
     guesses,
     currentGuess,
