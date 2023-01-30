@@ -4,11 +4,10 @@ import Login from "../Modals/login";
 
 interface props{
   showWinner: boolean;
-  showLogin: boolean
   resetGameFunc: any;
 }
 
-export function Header({showWinner, resetGameFunc, showLogin}:props) {
+export function Header({showWinner, resetGameFunc}:props) {
   const greetings = "Hello" + " " + localStorage.getItem("user");
   function handleLogout() {
     localStorage.setItem("user", "Guest");
@@ -17,7 +16,6 @@ export function Header({showWinner, resetGameFunc, showLogin}:props) {
   return (
     <header>
       <Winner showWin={showWinner} resetGame={resetGameFunc} />
-      <Login show={showLogin}></Login>
       <span>
         <span>
           <img src="photos/login.jpg" onClick={handleLogout}></img>

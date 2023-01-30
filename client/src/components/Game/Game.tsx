@@ -23,7 +23,7 @@ const GameLogic = useWordle();
 
   return (
     <>
-      <Header showWinner={GameLogic.showWin} resetGameFunc={GameLogic.resetBoard } showLogin={GameLogic.showLogin}/>
+      <Header showWinner={GameLogic.showWin} resetGameFunc={GameLogic.resetBoard }/>
       <div className="container">
         <Board currentGuess={GameLogic.currentGuess} guesses={GameLogic.guesses} turn={GameLogic.turn} />
         <Keyboard colorKey={GameLogic.GuessColors} />

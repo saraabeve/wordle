@@ -13,7 +13,10 @@ export function CheckGuessdWord(i: number, guess: string): (object){
   const guessed = guess.toLowerCase();
   const word= wordsList[i]
   if (word === guess) {
-    return {"state":"win"};
+    colorsOfGuess["state"]="win";
+    for(let j=0; j<guess.length;j++){
+      colorsOfGuess[guessed.charAt(j)]="#44FA23";
+    }
   } else {
     for (let j = 0; j < word.length; j++) {
       console.log(word.charAt(j))
